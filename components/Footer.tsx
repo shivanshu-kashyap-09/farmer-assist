@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 
 type FooterProps = {
   activeTab: string;
@@ -8,19 +9,23 @@ type FooterProps = {
 };
 
 const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab }) => {
+  const router = useRouter();
+
   return (
     <View style={styles.footer}>
       {/* Home Tab */}
       <TouchableOpacity
         style={[styles.tab, activeTab === "home" && styles.activeTab]}
-        onPress={() => setActiveTab("home")}
+        onPress={() => {
+          setActiveTab("home");
+          router.push("/"); // navigate to HomeScreen
+        }}
       >
         <Ionicons
           name="home-outline"
           size={22}
           color={activeTab === "home" ? "#fff" : "#333"}
         />
-
         <Text
           style={[
             styles.tabText,
@@ -34,7 +39,10 @@ const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab }) => {
       {/* AI Chat Tab */}
       <TouchableOpacity
         style={[styles.tab, activeTab === "chat" && styles.activeTab]}
-        onPress={() => setActiveTab("chat")}
+        onPress={() => {
+          setActiveTab("chat");
+          router.push("/aichat"); // navigate to AiChatScreen
+        }}
       >
         <Ionicons
           name="chatbubble-ellipses-outline"
@@ -78,7 +86,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   activeTab: {
-    backgroundColor: "#2E7D32", // Green highlight
+    backgroundColor: "#2E7D32",
   },
   tabText: {
     fontSize: 12,
