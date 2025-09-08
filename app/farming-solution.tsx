@@ -40,10 +40,25 @@ const FarmingSolution = () => {
               if (item.title === "Weather Forecast") {
                 router.push("/weather"); // navigate to Weather.tsx page
               }
+              else if (item.title === "Soil Health") {
+        router.push("/soil-health"); // navigate to soil-health.tsx page
+      }
+
+      else if (item.title === "Market Prices") {
+  router.push("/market-price"); // navigate to market-price.tsx page
+}
+
+     else if (item.title === "Water Management") {
+  router.push("/water"); // navigate to market-price.tsx page
+}
+
               // Add more navigation logic for other cards if needed
             }}
           />
         ))}
+
+
+
 
         {/* Navigation Buttons */}
         <View style={styles.navButtons}>
