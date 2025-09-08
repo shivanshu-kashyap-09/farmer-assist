@@ -26,12 +26,7 @@ const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab }) => {
           size={22}
           color={activeTab === "home" ? "#fff" : "#333"}
         />
-        <Text
-          style={[
-            styles.tabText,
-            activeTab === "home" && styles.activeTabText,
-          ]}
-        >
+        <Text style={[styles.tabText, activeTab === "home" && styles.activeTabText]}>
           Home
         </Text>
       </TouchableOpacity>
@@ -49,13 +44,44 @@ const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab }) => {
           size={22}
           color={activeTab === "chat" ? "#fff" : "#333"}
         />
-        <Text
-          style={[
-            styles.tabText,
-            activeTab === "chat" && styles.activeTabText,
-          ]}
-        >
+        <Text style={[styles.tabText, activeTab === "chat" && styles.activeTabText]}>
           AI Chat
+        </Text>
+      </TouchableOpacity>
+
+      {/* Weather Tab */}
+      <TouchableOpacity
+        style={[styles.tab, activeTab === "weather" && styles.activeTab]}
+        onPress={() => {
+          setActiveTab("weather");
+          router.push("/weather"); // navigate to WeatherScreen
+        }}
+      >
+        <Ionicons
+          name="cloud-outline"
+          size={22}
+          color={activeTab === "weather" ? "#fff" : "#333"}
+        />
+        <Text style={[styles.tabText, activeTab === "weather" && styles.activeTabText]}>
+          Weather
+        </Text>
+      </TouchableOpacity>
+
+      {/* Krushi Doctor Tab */}
+      <TouchableOpacity
+        style={[styles.tab, activeTab === "krushi" && styles.activeTab]}
+        onPress={() => {
+          setActiveTab("krushi");
+          router.push("/krushidoctor"); // navigate to KrushiDoctorScreen
+        }}
+      >
+        <Ionicons
+          name="medkit-outline"
+          size={22}
+          color={activeTab === "krushi" ? "#fff" : "#333"}
+        />
+        <Text style={[styles.tabText, activeTab === "krushi" && styles.activeTabText]}>
+          Krushi Doctor
         </Text>
       </TouchableOpacity>
     </View>

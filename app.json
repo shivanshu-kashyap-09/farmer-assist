@@ -9,7 +9,11 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+    "NSCameraUsageDescription": "Camera access for crop images",
+    "NSPhotoLibraryUsageDescription": "Photo library access for crop images"
+  }
     },
     "android": {
       "adaptiveIcon": {
@@ -40,3 +44,4 @@
     }
   }
 }
+
