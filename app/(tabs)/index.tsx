@@ -1,75 +1,115 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import React from 'react';
+import { Platform, StyleSheet, View, Text, Image, ScrollView } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
+    <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 20 }}>
+      {/* Header with Image */}
+      <View style={styles.header}>
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={require('../../assets/images/partial-react-logo.png')} // Adjust the path if necessary
           style={styles.reactLogo}
+          resizeMode="contain"
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
+      </View>
+
+      {/* Title and Wave Icon */}
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>Welcome!</Text>
+        <Ionicons name="hand-left-outline" size={32} color="#1D3D47" />
+      </View>
+
+      {/* Step 1 */}
+      <View style={styles.stepContainer}>
+        <Text style={styles.subtitle}>Step 1: Try it</Text>
+        <Text style={styles.text}>
+          Edit <Text style={styles.bold}>app/(tabs)/index.tsx</Text> to see changes. Press{' '}
+          <Text style={styles.bold}>
             {Platform.select({
               ios: 'cmd + d',
               android: 'cmd + m',
               web: 'F12',
             })}
-          </ThemedText>{' '}
+          </Text>{' '}
           to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+        </Text>
+      </View>
+
+      {/* Step 2 */}
+      <View style={styles.stepContainer}>
+        <Text style={styles.subtitle}>Step 2: Explore</Text>
+        <Text style={styles.text}>
+          Tap the Explore tab to learn more about what's included in this starter app.
+        </Text>
+      </View>
+
+      {/* Step 3 */}
+      <View style={styles.stepContainer}>
+        <Text style={styles.subtitle}>Step 3: Get a fresh start</Text>
+        <Text style={styles.text}>
+          When you're ready, run{' '}
+          <Text style={styles.bold}>npm run reset-project</Text> to get a fresh{' '}
+          <Text style={styles.bold}>app</Text> directory. This will move the current{' '}
+          <Text style={styles.bold}>app</Text> to <Text style={styles.bold}>app-example</Text>.
+        </Text>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: '#f9fafb',
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: 20,
+    position: 'relative',
+    height: 200,
+  },
+  reactLogo: {
+    width: 290,
+    height: 178,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+  },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
+    marginBottom: 20,
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#1D3D47',
+  },
+  subtitle: {
+    fontSize: 20,
+    fontWeight: '600',
+    marginBottom: 4,
+    color: '#333',
+  },
+  text: {
+    fontSize: 14,
+    color: '#555',
+  },
+  bold: {
+    fontWeight: 'bold',
   },
   stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+    marginBottom: 20,
+    padding: 10,
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
 });
