@@ -9,6 +9,8 @@ export default function Layout() {
       <Stack.Screen name="impact" options={{ headerTitle: "Impact" }} />
       <Stack.Screen name="story" options={{ headerTitle: "Farmer Stories" }} />
       <Stack.Screen name="aichat" options={{ headerTitle: "AI Chat Assistant" }} />
+      <Stack.Screen name="crop_detection" options={{ headerTitle: "crop detection" }} />
+      <Stack.Screen name="krushidoctor" options={{ headerTitle: "doctor" }} />
     </Stack>
   );
 }

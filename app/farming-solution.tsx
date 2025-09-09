@@ -15,6 +15,7 @@ const FarmingSolution = () => {
     { id: "3", title: "Water Management", description: "Efficient irrigation techniques for your farm.", icon: "water-outline" },
     { id: "4", title: "Market Prices", description: "Check live market prices for your crops.", icon: "cash-outline" },
     { id: "5", title: "Weather Forecast", description: "Get accurate weather predictions for farming.", icon: "cloud-outline" },
+    { id: "6", title: "doctor", description: "Get expert advice from our AI-powered agronomist.", icon: "medkit-outline" },
   ];
 
   return (
@@ -39,6 +40,18 @@ const FarmingSolution = () => {
             onPress={() => {
               if (item.title === "Weather Forecast") {
                 router.push("/weather"); // navigate to Weather.tsx page
+              }
+              else if (item.title === "Soil Health") {
+                router.push("/soil-health"); // navigate to soil-health.tsx page
+              }
+              else if (item.title === "Market Prices") {
+                router.push("/market-price"); // navigate to market-price.tsx page
+              }
+              else if (item.title === "Water Management") {
+                router.push("/water"); // navigate to market-price.tsx page
+              }
+              else if (item.title === "doctor") {
+                router.push("/krushidoctor"); // navigate to doctor.tsx page
               }
               // Add more navigation logic for other cards if needed
             }}
